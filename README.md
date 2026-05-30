@@ -1,5 +1,5 @@
-# 🌤️ Projet : Contrôle Terminal Pratique React
+# Projet : Contrôle Terminal Pratique React
 
-## 👥 Membres du groupe
+## Membres du groupe
 - **1- BELLO Matinou**
 - **2- VODOUNON Majorelle**
