@@ -1,4 +1,3 @@
-/* Design Tokens from HotelManagement */
 :root {
     --g50:  #f0faf0;
     --g100: #d4edda;
@@ -57,10 +56,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
     border-bottom: 2px solid var(--s100);
 }
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+}
+
 
 .db-title {
     font-size: 2rem;
@@ -84,8 +104,8 @@ body {
 
 .search-box {
     position: relative;
-    flex: 1;
-    min-width: 300px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .search-box i {
@@ -229,9 +249,123 @@ body {
     flex: 1;
     margin-bottom: 20px;
 }
+.btn-add-prod, .btn-add-cat {
+    display: flex;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-sm);
+}
 
-.btn-add {
+.btn-add-prod {
+    background: var(--g600);
+}
+
+.btn-add-cat {
+    background: var(--s800);
+}
+
+.btn-add-prod:hover, .btn-add-cat:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.1);
+}
+
+.btn-add-prod:active, .btn-add-cat:active {
+    transform: translateY(0);
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--s900);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--s700);
+    font-size: 0.9rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--s200);
+    border-radius: var(--radius);
+    outline: none;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-input:focus {
+    border-color: var(--g400);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-submit {
+    flex: 1;
     padding: 12px;
     background: var(--g600);
     color: white;
@@ -240,16 +374,24 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
 }
 
-.btn-add:hover {
-    background: var(--g700);
-    transform: translateY(-2px);
+.btn-cancel {
+    flex: 1;
+    padding: 12px;
+    background: var(--s100);
+    color: var(--s700);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
 }
+
+.btn-cancel:hover {
+    background: var(--s200);
+}
+
 
 .btn-close {
     background: none;
@@ -281,4 +423,29 @@ body {
     color: var(--s700);
     margin-bottom: 10px;
 }
-
+
+
+.image-mode-selector {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    padding: 8px;
+    background: var(--s100);
+    border-radius: var(--radius);
+}
+
+.image-mode-selector label {
+    margin: 0 !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-preview {
+    display: flex;
+    justify-content: center;
+    background: var(--s50);
+    border-radius: var(--radius);
+    padding: 10px;
+}
